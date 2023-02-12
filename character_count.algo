@@ -1,0 +1,40 @@
+/* Exercice à ne pas corriger pour le moment */
+
+ALGORITHM character_count
+VAR
+    count_words, count_vowels, count_character : INTEGER
+    sentence : STRING
+
+BEGIN
+    count_character := 0;
+    count_vowels := 0;
+    count_words := 0;
+    count_point := 0;
+    Read(sentence);
+    FOR EACH elt IN sentence DO
+        IF (elt = ".") THEN
+            count_point =+ 1
+        ELSE
+        END_IF
+    END_FOR
+    IF (count_point = 1) THEN
+        FOR EACH elt IN sentence DO
+            count_character =+ 1
+            SWITCH (elt) DO
+                case " " : count_words =+ 1;
+                case "a" : count_vowels =+ 1;
+                case "e" : count_vowels =+ 1;
+                case "o" : count_vowels =+ 1;
+                case "u" : count_vowels =+ 1;
+                case "i" : count_vowels =+ 1;
+                case "." : break
+                default : break
+            END_SWITCH
+        END_FOR
+    ELSE
+        Write(rentrez une phrase commencant par une lettre majuscule et se terminant par un point)
+    END_IF
+    Write(count_character);
+    Write(count_vowels);
+    Write(count_words);
+END
