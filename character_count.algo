@@ -2,7 +2,7 @@
 
 ALGORITHM character_count
 VAR
-    count_words, count_vowels, count_character : INTEGER
+    count_words, count_vowels, count_character, count_point, i : INTEGER
     sentence : STRING
 
 BEGIN
@@ -10,17 +10,18 @@ BEGIN
     count_vowels := 0;
     count_words := 0;
     count_point := 0;
+    Write("rentrez une phrase se terminant par un point et dont les mots sont séparés par un seul espace")
     Read(sentence);
-    FOR EACH elt IN sentence DO
-        IF (elt = ".") THEN
+    FOR i FROM 0 TO sentence.lenght - 1  DO
+        IF (sentence[i] = ".") THEN
             count_point =+ 1
         ELSE
         END_IF
     END_FOR
     IF (count_point = 1) THEN
-        FOR EACH elt IN sentence DO
+        FOR i FROM 0 TO sentence.lenght - 1  DO
             count_character =+ 1
-            SWITCH (elt) DO
+            SWITCH (sentence[i]) DO
                 case " " : count_words =+ 1;
                 case "a" : count_vowels =+ 1;
                 case "e" : count_vowels =+ 1;
@@ -34,7 +35,7 @@ BEGIN
     ELSE
         Write(rentrez une phrase commencant par une lettre majuscule et se terminant par un point)
     END_IF
-    Write(count_character);
+    Write(count_character - count_words);
     Write(count_vowels);
     Write(count_words);
 END
